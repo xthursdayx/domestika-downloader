@@ -1,11 +1,9 @@
-version: '3.8'
 services:
   domestika-downloader:
     build:
       context: .
       dockerfile: docker/Dockerfile
+    environment:
+      - N_VERSION=v0.2.1-beta
     volumes:
-      - './src:/app/src'
-      - './public:/app/public'
-      - './package-lock.json:/app/package-lock.json'
-      - './package.json:/app/package.json'
+      - './config:/app'

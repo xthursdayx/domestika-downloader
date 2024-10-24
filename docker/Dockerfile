@@ -1,6 +1,5 @@
 FROM node:23.0.0-alpine3.19
 
-N_VERSION v0.2.1-beta
 ARG N_VERSION
 
 # environment settings
