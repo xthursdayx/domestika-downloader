@@ -12,6 +12,7 @@ RUN set -x && \
   apk upgrade && \
   apk add --no-cache \
     curl \
+    python \
     ffmpeg \
     jq \
     mpv \
