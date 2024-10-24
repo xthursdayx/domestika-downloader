@@ -6,6 +6,10 @@ ARG N_VERSION
 ENV HOME="/app" \
 PYTHONIOENCODING=utf-8
 
+RUN mkdir /app/domestika-downloader
+
+WORKDIR /app/domestika-downloader
+
 COPY . /app/domestika-downloader
 
 RUN \
