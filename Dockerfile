@@ -13,12 +13,16 @@ RUN set -x && \
   apk add --no-cache \
     curl \
     python \
+    nss \
     ffmpeg \
     jq \
     mpv \
     aria2 \
     udev \
     ttf-freefont \
+    freetype \
+    harfbuzz \
+    ca-certificates \
     chromium && \
   npm install puppeteer && \
   apk del --no-cache make gcc g++ python binutils-gold gnupg libstdc++ && \
