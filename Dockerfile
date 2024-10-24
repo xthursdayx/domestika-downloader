@@ -6,11 +6,12 @@ ARG N_VERSION
 ENV HOME="/app" \
 PYTHONIOENCODING=utf-8
 
-RUN mkdir /app
-
 WORKDIR /app
 
-COPY . /app
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY package*.json ./
 
 RUN \
   echo "**** install packages ****" && \
@@ -40,4 +41,7 @@ RUN \
     /root/.cache \
     /tmp/*
 
-    CMD [ "npm", "start"]
+# Bundle app source
+COPY . .
+
+CMD [ "npm", "start"]
