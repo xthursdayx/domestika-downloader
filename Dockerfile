@@ -2,8 +2,6 @@ FROM node:23.0.0-alpine3.19
 
 ARG N_VERSION
 
-RUN mkdir /app
-
 WORKDIR /app
 
 COPY package*.json /app
