@@ -15,8 +15,6 @@ RUN \
     nano \
     ffmpeg \
     mpv \
-    rar \
-    unrar \
     aria2 && \
   echo "**** install m3u8DL ****" && \
   if [ -z ${N_VERSION+x} ]; then \
