@@ -31,7 +31,7 @@ RUN \
     /app/domestika --strip-components=1 && \
   cd /app/domestika && \
   chmod +x N_m3u8DL-RE && \
-  echo "**** install domestika-downloader ****"
+  echo "**** install domestika-downloader ****" && \
   npm install && \
   cp config_template.js config.js && \
   rm -rf \
