@@ -14,6 +14,7 @@ RUN \
     curl \
     nano \
     ffmpeg \
+    jq \
     mpv \
     aria2 && \
   echo "**** install m3u8DL ****" && \
