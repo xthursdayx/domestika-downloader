@@ -2,16 +2,11 @@ FROM node:23.0.0-alpine3.19
 
 ARG N_VERSION
 
-# environment settings
-ENV HOME="/app" \
-PYTHONIOENCODING=utf-8
+RUN mkdir /app
 
 WORKDIR /app
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
-COPY package*.json ./
+COPY package*.json /app
 
 RUN \
   echo "**** install packages ****" && \
@@ -42,6 +37,6 @@ RUN \
     /tmp/*
 
 # Bundle app source
-COPY . .
+COPY . /app
 
 CMD [ "npm", "start"]
