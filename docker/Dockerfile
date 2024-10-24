@@ -40,4 +40,4 @@ RUN \
     /root/.cache \
     /tmp/*
 
-    CMD [ "npm", "run", "start"]
+    CMD [ "npm", "start"]
