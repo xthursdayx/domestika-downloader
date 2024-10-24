@@ -6,4 +6,4 @@ services:
     environment:
       - N_VERSION=v0.2.1-beta
     volumes:
-      - './config:/app'
+      - './config:/app/domestika-downloader'

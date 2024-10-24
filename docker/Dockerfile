@@ -27,8 +27,8 @@ RUN \
     "https://github.com/nilaoda/N_m3u8DL-RE/releases/download/${N_VERSION}/N_m3u8DL-RE_Beta_linux-x64_20240828.tar.gz" && \
   tar -xzf \
     /tmp/N_m3u8DL-RE.tar.gz -C \
-    /app --strip-components=1 && \
-  cd /app && \
+    /app/domestika-downloader --strip-components=1 && \
+  cd /app/domestika-downloader && \
   chmod +x N_m3u8DL-RE && \
   echo "**** install domestika-downloader ****" && \
   npm install && \
