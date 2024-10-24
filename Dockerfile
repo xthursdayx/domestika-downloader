@@ -25,7 +25,7 @@ RUN set -x && \
     ca-certificates \
     chromium && \
   npm install puppeteer && \
-  apk del --no-cache make gcc g++ python binutils-gold gnupg libstdc++ && \
+  apk del --no-cache make gcc g++ python3 binutils-gold gnupg libstdc++ && \
   rm -rf /usr/include && \
   rm -rf /var/cache/apk/* /root/.node-gyp /usr/share/man /tmp/*
 
