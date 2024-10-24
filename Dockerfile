@@ -31,4 +31,6 @@ RUN \
 # Bundle app source
 COPY . /app/domestika
 
+RUN export PATH=$PATH:$PWD
+
 CMD [ "npm", "start"]
