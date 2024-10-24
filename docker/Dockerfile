@@ -32,7 +32,7 @@ RUN \
   chmod +x N_m3u8DL-RE && \
   echo "**** install domestika-downloader ****" && \
   npm install && \
-  cp config_template.js config.js && \
+  cp config_template.json config.json && \
   rm -rf \
     /root/.cache \
     /tmp/*
