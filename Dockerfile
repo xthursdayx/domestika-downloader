@@ -4,17 +4,11 @@ ARG N_VERSION
 
 WORKDIR /app
 
+RUN ["apk", "add", "--no-cache", "curl", "nano", "ffmpeg", "jq", "mpv", "aria2"]
+
 COPY package*.json /app
 
 RUN \
-  echo "**** install packages ****" && \
-  apk add  -U --update --no-cache \
-    curl \
-    nano \
-    ffmpeg \
-    jq \
-    mpv \
-    aria2 && \
   echo "**** install m3u8DL ****" && \
   if [ -z ${N_VERSION+x} ]; then \
     N_VERSION=$(curl -s https://api.github.com/repos/nilaoda/N_m3u8DL-RE/releases \
