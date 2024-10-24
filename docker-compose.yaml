@@ -3,7 +3,7 @@ services:
     container_name: domestika-downloader
     build:
       context: .
-      dockerfile: docker/Dockerfile
+      dockerfile: ./Dockerfile
     environment:
       - N_VERSION=v0.2.1-beta
     volumes:

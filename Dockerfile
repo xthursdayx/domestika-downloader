@@ -3,7 +3,7 @@ FROM node:23.0.0-alpine3.19
 ARG N_VERSION
 
 # environment settings
-ENV HOME="/app" \
+ENV HOME="/app/domestika-downloader" \
 PYTHONIOENCODING=utf-8
 
 RUN mkdir /app/domestika-downloader
