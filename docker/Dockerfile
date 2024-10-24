@@ -1,21 +1,21 @@
-FROM ghcr.io/linuxserver/baseimage-alpine:3.19
+FROM node:23.0.0-alpine3.19
 
 ARG N_VERSION
 
 # environment settings
-ENV \
-  HOME="/app" \
-  PYTHONIOENCODING=utf-8
+ENV HOME="/app" \
+PYTHONIOENCODING=utf-8
 
 COPY . /app/domestika-downloader
 
 RUN \
   echo "**** install packages ****" && \
   apk add  -U --update --no-cache \
+    curl \
+    nano \
     ffmpeg \
+    jq \
     mpv \
-    nodejs \
-    npm \
     aria2 && \
   echo "**** install m3u8DL ****" && \
   if [ -z ${N_VERSION+x} ]; then \
@@ -32,7 +32,8 @@ RUN \
   chmod +x N_m3u8DL-RE && \
   echo "**** install domestika-downloader ****" && \
   npm install && \
-  cp config_template.json config.json && \
   rm -rf \
     /root/.cache \
     /tmp/*
+
+    CMD [ "npm", "run", "start"]
