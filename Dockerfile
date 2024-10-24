@@ -3,7 +3,8 @@ FROM node:23.0.0-alpine3.19
 ARG N_VERSION
 
 ENV CHROME_BIN="/usr/bin/chromium-browser" \
-PUPPETEER_SKIP_CHROMIUM_DOWNLOAD="true"
+PUPPETEER_SKIP_CHROMIUM_DOWNLOAD="true" \
+CHROME_PATH=/usr/lib/chromium/
 
 WORKDIR /app/domestika
 
@@ -11,6 +12,7 @@ RUN set -x && \
   apk update && \
   apk upgrade && \
   apk add --no-cache \
+    ca-certificates \
     curl \
     python3 \
     nss \
@@ -23,7 +25,7 @@ RUN set -x && \
     freetype \
     harfbuzz \
     ca-certificates \
-    chromium && \
+    chromium-swiftshader && \
   npm install puppeteer && \
   apk del --no-cache make gcc g++ python3 binutils-gold gnupg libstdc++ && \
   rm -rf /usr/include && \
