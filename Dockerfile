@@ -2,7 +2,7 @@ FROM node:23.0.0-alpine3.19
 
 ARG N_VERSION
 
-WORKDIR /app
+WORKDIR /app/domestika
 
 RUN ["apk", "add", "--no-cache", "curl", "nano", "ffmpeg", "jq", "mpv", "aria2"]
 
@@ -19,8 +19,8 @@ RUN \
     "https://github.com/nilaoda/N_m3u8DL-RE/releases/download/${N_VERSION}/N_m3u8DL-RE_Beta_linux-x64_20240828.tar.gz" && \
   tar -xzf \
     /tmp/N_m3u8DL-RE.tar.gz -C \
-    /app --strip-components=1 && \
-  cd /app && \
+    /app/domestika --strip-components=1 && \
+  cd /app/domestika && \
   chmod +x N_m3u8DL-RE && \
   echo "**** install domestika-downloader ****" && \
   npm install && \
@@ -29,6 +29,6 @@ RUN \
     /tmp/*
 
 # Bundle app source
-COPY ./ ./
+COPY . /app/domestika
 
 CMD [ "npm", "start"]
