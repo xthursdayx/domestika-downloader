@@ -5,18 +5,24 @@ ARG N_VERSION
 ENV CHROME_BIN="/usr/bin/chromium-browser" \
 PUPPETEER_SKIP_CHROMIUM_DOWNLOAD="true"
 
+WORKDIR /app/domestika
+
 RUN set -x && \
   apk update && \
   apk upgrade && \
-  apk add --no-cache curl udev ttf-freefont chromium && \
+  apk add --no-cache \
+    curl \
+    ffmpeg \
+    jq \
+    mpv \
+    aria2 \
+    udev \
+    ttf-freefont \
+    chromium && \
   npm install puppeteer && \
   apk del --no-cache make gcc g++ python binutils-gold gnupg libstdc++ && \
   rm -rf /usr/include && \
   rm -rf /var/cache/apk/* /root/.node-gyp /usr/share/man /tmp/*
-
-WORKDIR /app/domestika
-
-RUN ["apk", "add", "--no-cache", "curl", "nano", "ffmpeg", "jq", "mpv", "aria2"]
 
 COPY package*.json ./
 
