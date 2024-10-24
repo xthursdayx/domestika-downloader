@@ -1,0 +1,14 @@
+{
+    "debug": false,
+    "course_url": "YOUR_COURSE_URL_HERE",
+    "subtitle_lang": "en",
+    "cookies": [
+      {
+        "name": "_domestika_session",
+        "value": "YOUR_COOKIE_HERE",
+        "domain": "www.domestika.org"
+      }
+    ],
+    "credentials": "YOUR_CREDENTIALS_HERE"
+  }
+  

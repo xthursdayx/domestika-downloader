@@ -4,28 +4,19 @@ const util = require('util');
 const exec = util.promisify(require('child_process').exec);
 const fs = require('fs');
 
+// --- LOAD CONFIGURATION ---
+const config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
+
 // --- CONFIGURATION ---
-const debug = false;
-const debug_data = [];
-
-const course_url = 'YOUR_COURSE_URL_HERE';
-const subtitle_lang = 'en';
-
-//Cookie used to retreive video information
-const cookies = [
-    {
-        name: '_domestika_session',
-        value: 'YOUR_COOKIE_HERE',
-        domain: 'www.domestika.org',
-    },
-];
-
-//Credentials needed for the access token to get the final project
-const _credentials_ = 'YOUR_CREDENTIALS_HERE';
+const debug = config.debug;
+const course_url = config.course_url;
+const subtitle_lang = config.subtitle_lang;
+const cookies = config.cookies;
+const _credentials_ = config.credentials;
 // --- END CONFIGURATION ---
 
 //Check if the N_m3u8DL-RE.exe exists, throw error if not
-if (fs.existsSync('N_m3u8DL-RE.exe')) {
+if (fs.existsSync('N_m3u8DL-RE')) {
     scrapeSite();
 } else {
     throw Error('N_m3u8DL-RE.exe not found! Download the Binary here: https://github.com/nilaoda/N_m3u8DL-RE/releases');
