@@ -6,7 +6,7 @@ WORKDIR /app
 
 RUN ["apk", "add", "--no-cache", "curl", "nano", "ffmpeg", "jq", "mpv", "aria2"]
 
-COPY package*.json /app
+COPY package*.json ./
 
 RUN \
   echo "**** install m3u8DL ****" && \
@@ -29,6 +29,6 @@ RUN \
     /tmp/*
 
 # Bundle app source
-COPY . /app
+COPY ./ ./
 
 CMD [ "npm", "start"]
