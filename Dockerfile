@@ -23,9 +23,8 @@ RUN \
   cd /app/domestika && \
   chmod +x N_m3u8DL-RE && \
   echo "**** install domestika-downloader ****" && \
-  npm install && \
+  npm i && \
   rm -rf \
-    /root/.cache \
     /tmp/*
 
 # Bundle app source
